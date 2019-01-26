@@ -3,4 +3,12 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
 		 http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
+    <servlet>
+        <servlet-name>CatAllServlet</servlet-name>
+        <servlet-class>fdmc.web.servlets.CatAllServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>CatAllServlet</servlet-name>
+        <url-pattern>/cats/all</url-pattern>
+    </servlet-mapping>
 </web-app>
