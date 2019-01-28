@@ -42,6 +42,7 @@ public class CatProfileServlet extends HttpServlet {
             htmlFileContent = this.htmlReader
                     .readHtmlFile(CAT_PROFILE_HTML_FILE_PATH)
                     .replace("{{catName}}", cat.getName())
+                    .replace("{{catBreed}}", cat.getBreed())
                     .replace("{{catColor}}", cat.getColor())
                     .replace("{{catAge}}", cat.getAge().toString());
         }

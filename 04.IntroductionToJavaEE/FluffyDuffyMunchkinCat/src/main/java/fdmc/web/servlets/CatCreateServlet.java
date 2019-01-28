@@ -51,7 +51,7 @@ public class CatCreateServlet extends HttpServlet {
         }
 
         ((Map<String,Cat>)req.getSession().getAttribute("cats"))
-            .putIfAbsent(cat.getName(), cat);
+                .putIfAbsent(cat.getName(), cat);
 
         resp.sendRedirect(String
                 .format("/cats/profile?catName=%s", cat.getName()));
