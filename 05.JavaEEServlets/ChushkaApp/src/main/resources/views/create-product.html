@@ -16,40 +16,56 @@
 <div class="container">
     <main>
         <div class="jumbotron">
-            <div class="row">
-                <div class="col col-md-12 d-flex justify-content-center">
-                    <h1>Create Product</h1>
+            <form action="/product/create" method="post">
+                <div class="row">
+                    <div class="col col-md-12 d-flex justify-content-center">
+                        <h1>Create Product</h1>
+                    </div>
                 </div>
                 <hr/>
                 <div class="row">
-                    <div class="col col-md-12 ">
-                        <div class="row d-flex justify-content-center">
-
+                        <div class="col col-md-12 ">
+                            <div class="row d-flex justify-content-center">
+                                <label for="nameInput">Name</label>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <input type="text" id="nameInput" name="name">
+                            </div>
                         </div>
-                        <div class="row d-flex justify-content-center">
-
+                </div>
+                <div class="row">
+                        <div class="col col-md-12">
+                            <div class="row d-flex justify-content-center">
+                                <label for="descriptionTextArea">Description</label>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <textarea name="description" id="descriptionTextArea" cols="22" rows="4"></textarea>
+                            </div>
                         </div>
-                    </div>
                 </div>
                 <div class="row">
-                    <div class="col col-md-12 d-flex justify-content-center">
-
-                    </div>
+                        <div class="col col-md-12 ">
+                            <div class="row d-flex justify-content-center">
+                                <label for="typeSelect">Type</label>
+                            </div>
+                            <div class="row d-flex justify-content-center">
+                                <select name="type" id="typeSelect">
+                                    {{typeOptions}}
+                                </select>
+                            </div>
+                        </div>
                 </div>
                 <div class="row">
-                    <div class="col col-md-12 d-flex justify-content-center">
-
-                    </div>
+                        <div class="col col-md-12 d-flex justify-content-center">
+                            <a href="/products/create" class="btn btn-primary">Create Product</a>
+                        </div>
                 </div>
-                <div class="row">
-                    <div class="col col-md-12 d-flex justify-content-center">
 
-                    </div>
-                </div>
-            </div>
+            </form>
+            <hr/>
             <div class="row">
                 <div class="col col-md-12 d-flex justify-content-center">
-                    <a href="/products/create" class="btn btn-primary">Create Product</a>
+                    <a href="/">Back to Home page.</a>
                 </div>
             </div>
         </div>
