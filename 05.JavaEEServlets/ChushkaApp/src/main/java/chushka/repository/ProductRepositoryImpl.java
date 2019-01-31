@@ -46,4 +46,15 @@ public class ProductRepositoryImpl implements ProductRepository {
         this.entityManager.getTransaction().commit();
         return products;
     }
+
+    @Override
+    public Product findByName(String name) {
+        this.entityManager.getTransaction().begin();
+        Product product = this.entityManager
+                .createQuery("SELECT p FROM products p WHERE p.name = :name", Product.class)
+                .setParameter("name", name)
+                        .getSingleResult();
+        this.entityManager.getTransaction().commit();
+        return product;
+    }
 }
