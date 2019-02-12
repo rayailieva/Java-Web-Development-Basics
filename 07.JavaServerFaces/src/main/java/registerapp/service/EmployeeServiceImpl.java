@@ -6,6 +6,7 @@ import registerapp.domain.models.service.EmployeeServiceModel;
 import registerapp.repository.EmployeeRepository;
 
 import javax.inject.Inject;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -48,4 +49,5 @@ public class EmployeeServiceImpl implements EmployeeService {
         }
         return true;
     }
+
 }

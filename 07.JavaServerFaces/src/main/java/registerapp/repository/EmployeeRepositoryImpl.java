@@ -5,6 +5,7 @@ import registerapp.domain.entities.Employee;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.Id;
+import java.math.BigDecimal;
 import java.util.List;
 
 public class EmployeeRepositoryImpl implements EmployeeRepository {
