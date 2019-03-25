@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core">
+
+<ui:component>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-casebook">
+            <h:link class="navbar-brand text-muted h4" value="Casebook" outcome="profile?id=#{session.getAttribute('userId')}"/>
+            <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNav">
+                <ul class="navbar-nav row">
+                    <li class="nav-item col-md-4">
+                        <h:link class="nav-link text-muted active h5" value="Home" outcome="home"/>
+                    </li>
+                    <c:choose>
+                        <c:when test="#{session.getAttribute('username') == null}">
+                        <li class="nav-item col-md-4">
+                            <h:link class="nav-link text-muted active h5" value="Login" outcome="login"/>
+                        </li>
+                        <li class="nav-item col-md-4">
+                            <h:link class="nav-link text-muted active h5" value="Register" outcome="register"/>
+                        </li>
+                        </c:when>
+                        <c:otherwise>
+                            <li class="nav-item col-md-4">
+                                <h:link class="nav-link text-muted active h5" value="Friends" outcome="friends"/>
+                            </li>
+                            <li class="nav-item col-md-4">
+                                <h:form>
+                                <h:commandLink class="nav-link text-muted active h5" value="Logout" action="#{userLogoutBean.logout}"/>
+                                </h:form>
+                            </li>
+                        </c:otherwise>
+                    </c:choose>
+                </ul>
+            </div>
+        </nav>
+    </header>
+</ui:component>
+</html>

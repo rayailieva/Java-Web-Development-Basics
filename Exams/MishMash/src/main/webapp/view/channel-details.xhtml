@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="templates/base-layout.xhtml">
+<ui:define name="main-content">
+    <main class="mt-3 mb-5">
+        <hr class="hr-2 bg-mishmash"/>
+        <div class="channel-main-data-holder w-75 mx-auto d-flex justify-content-between">
+            <h3 class="text-center text-mishmash">Channel: #{channelDetailsBean.channelDetailsViewModel.name}</h3>
+            <h3 class="text-center text-mishmash">Type: #{channelDetailsBean.channelDetailsViewModel.type}</h3>
+        </div>
+        <hr class="hr-2 bg-mishmash"/>
+
+        <h3 class="text-center text-mishmash">Description</h3>
+        <div class="product-description-holder">
+            <p class="text-center text-mishmash mt-4">
+                #{channelDetailsBean.channelDetailsViewModel.description}
+            </p>
+        </div>
+        <hr class="hr-2 bg-mishmash"/>
+        <div class="button-holder d-flex justify-content-center">
+            <h:form>
+            <h:commandLink class="btn bg-mishmash text-white" value="Back" action="home"/>
+            </h:form>
+        </div>
+    </main>
+</ui:define>
+</ui:composition>
+
+
+</html>

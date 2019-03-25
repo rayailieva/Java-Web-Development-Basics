@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main class="mt-3">
+            <h1 class="text-center text-mishmash">Create Product</h1>
+            <hr class="bg-mishmash w-50 hr-2"/>
+            <h:form class="mx-auto w-50">
+                <div class="form-group">
+                    <h:outputLabel for="name" value="Name"/>
+                    <h:inputText value="#{channelCreateBean.channelCreateBindingModel.name}" type="text" class="form-control" id="name"/>
+                </div>
+                <div class="form-group">
+                    <h:outputLabel for="description" value="Description"/>
+                    <h:inputText value="#{channelCreateBean.channelCreateBindingModel.description}" type="text" class="form-control" id="description"/>
+                </div>
+                <h4 class="text-center">Channel Type</h4>
+                <hr class="hr-2 bg-dark half-width mt-4"/>
+                <div class="product-type-holder mt-4 d-flex justify-content-around">
+                    <h:selectOneRadio value="#{channelCreateBean.channelCreateBindingModel.type}">
+                        <f:selectItem itemValue="Game" itemLabel="Game" />
+                        <f:selectItem itemValue="Motivation" itemLabel="Motivation" />
+                        <f:selectItem itemValue="Lessons" itemLabel="Lessons" />
+                        <f:selectItem itemValue="Radio" itemLabel="Radio" />
+                        <f:selectItem itemValue="Other" itemLabel="Other" />
+                    </h:selectOneRadio>
+                </div>
+                <hr class="hr-2 bg-dark half-width mt-4"/>
+                <div class="button-holder mt-2 d-flex justify-content-center">
+                    <h:commandButton type="submit" class="btn bg-mishmash text-white"  value="Create" action="#{channelCreateBean.create}"/>
+                </div>
+            </h:form>
+        </main>
+    </ui:define>
+</ui:composition>
+
+</html>

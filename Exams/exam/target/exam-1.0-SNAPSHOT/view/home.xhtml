@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://java.sun.com/jsf/facelets"
+
+>
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main class="mt-3">
+            <hr class="bg-exodia hr-2"/>
+            <div class="print-container container-fluid">
+                <div class="row mb-4 d-flex justify-content-between">
+                    <c:forEach items="#{userHomeBean.models}" var="model">
+                    <div class="print-scheduled col-md-2 bg-exodia rounded">
+                        <h5 class="text-center text-white font-weight-bold py-3 mt-3">#{model.title}</h5>
+                        <hr class="bg-white"/>
+                        <div class="buttons-holder w-75 mx-auto d-flex justify-content-between">
+                            <h:form>
+                                <h:link class="btn bg-exodia text-white font-weight-bold mb-3" value="Print" outcome="print?id=#{model.id}"/>
+                            </h:form>
+                            <h:form>
+                              <h:link class="btn bg-exodia text-white font-weight-bold mb-3" value="Details" outcome="details?id=#{model.id}"/>
+                            </h:form>
+                        </div>
+                    </div>
+                    </c:forEach>
+                </div>
+            </div>
+            <hr class="bg-exodia hr-2 mt-5"/>
+        </main>
+    </ui:define>
+</ui:composition>
+</html>

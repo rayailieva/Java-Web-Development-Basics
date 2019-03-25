@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main>
+            <hr class="my-2"/>
+            <div class="text-center mt-3">
+                <h:link class="h4 text-info" value="Welcome, #{session.getAttribute('username')}" outcome="profile?id=#{session.getAttribute('userId')}"/>
+            </div>
+            <hr class="my-4"/>
+            <div class="container">
+                <div class="row mb-4 d-flex justify-content-around">
+                    <c:forEach items="#{userHomeBean.models}" var="model">
+                    <div class="col-md-2 d-flex flex-column text-center">
+                        <c:choose>
+                        <c:when test="#{model.gender == 'Male'}">
+                            <h:graphicImage library="exam-lib" name="img/male.png"
+                                            class="img-thumbnail" width="200" height="200"/>
+                        </c:when>
+                        <c:otherwise>
+                            <h:graphicImage library="exam-lib"  name="img/female.png"
+                                            class="img-thumbnail" width="200" height="200"/>
+                        </c:otherwise>
+                        </c:choose>
+                        <h5 class="text-center">#{model.username}</h5>
+                        <h:form>
+                        <h:commandButton class="btn btn-info" value="Add Friend" action="#{userHomeBean.addFriend(model.id)}"/>
+                        </h:form>
+                    </div>
+                    </c:forEach>
+                </div>
+            </div>
+            <hr class="my-3"/>
+        </main>
+    </ui:define>
+</ui:composition>
+</html>

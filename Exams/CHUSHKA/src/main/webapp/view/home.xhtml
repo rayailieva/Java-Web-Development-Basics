@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="templates/base-layout.xhtml">
+    <ui:define name="main-content">
+        <main class="mt-3 mb-5">
+            <div class="container-fluid text-center">
+                <c:choose>
+                <c:when test="#{session.getAttribute('role') == 'Admin'}">
+                    <h1 class="text-center">Hello, Administrator #{session.getAttribute('username')}!</h1>
+                    <h4>Enjoy your work today!</h4>
+                </c:when>
+                <c:otherwise>
+                    <h2 class="text-center">Greetings, #{session.getAttribute('username')}!</h2>
+                    <h4>Feel free to view and order any of our products.</h4>
+                </c:otherwise>
+                </c:choose>
+            </div>
+            <hr class="hr-2 bg-dark"/>
+            <div class="container-fluid product-holder">
+                <div class="row d-flex justify-content-around">
+                    <c:forEach items="#{userHomeBean.products}" var="product">
+                    <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
+                        <h5>
+                            <h:link class="text-center mt-3" value="#{product.name}" outcome="details-product?id=#{product.id}"/>
+                        </h5>
+                        <hr class="hr-1 bg-white"/>
+                        <p class="text-white text-center">
+                            #{product.description}
+                        </p>
+                        <hr class="hr-1 bg-white"/>
+                        <h6 class="text-center text-white mb-3">$#{product.price}</h6>
+                        <h:form>
+                            <h:commandButton value="Delete" class="btn btn-danger" action="#{productDeleteBean.delete}" />
+                        </h:form>
+
+                        <br/>
+
+                    </div>
+                    </c:forEach>
+                </div>
+            </div>
+        </main>
+    </ui:define>
+</ui:composition>
+
+
+</html>
